@@ -1,0 +1,17 @@
+# OPTIONAL Linux systemd template. Edit the User and path before installing.
+[Unit]
+Description=YouTube Discord Music Bot
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/youtube-discord-music-bot
+ExecStart=/usr/bin/node /home/ubuntu/youtube-discord-music-bot/src/index.js
+Restart=always
+RestartSec=10
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
